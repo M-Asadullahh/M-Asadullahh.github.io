@@ -76,6 +76,19 @@
       font-size: 0.9em;
       color: #cc66a1;
     }
+
+    /* Cute hidden play button */
+    #playButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff99cc, #ff66b3);
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 102, 179, 0.6);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -93,22 +106,28 @@
     <a class="btn" href="https://open.spotify.com/playlist/your-playlist-link" target="_blank">🎧 Listen to Our Playlist</a>
     <div class="divider"></div>
     <p>🌸✨ Made with love for you ✨🌸</p>
+
+    <!-- Hidden music trigger -->
+    <button id="playButton">💿 Play Music</button>
   </div>
 
   <footer>
     <p>Powered by love 💕</p>
   </footer>
 
-  <!-- Hidden Background Music -->
-  <audio id="bg-music" autoplay loop>
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
     <source src="https://files.catbox.moe/8z9y2z.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Trick to allow autoplay on Chrome/Edge
-    document.addEventListener("click", function() {
-      document.getElementById("bg-music").play();
-    }, { once: true });
+    const playButton = document.getElementById("playButton");
+    const music = document.getElementById("bg-music");
+
+    playButton.addEventListener("click", () => {
+      music.play();
+      playButton.style.display = "none"; // hide button after click
+    });
   </script>
 
 </body>
