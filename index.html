@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Letter for You 💌</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Pacifico&display=swap');
 
     body {
       background: linear-gradient(135deg, #ffe6f9, #d6f7ff);
@@ -13,20 +13,24 @@
       text-align: center;
       padding: 40px;
       color: #ff66b3;
+      background-image: url('https://i.imgur.com/xpPjA7z.gif'); /* sparkle background */
+      background-size: cover;
     }
 
     .letter-box {
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
       border: 3px dashed #ff99cc;
       border-radius: 25px;
       box-shadow: 0 0 25px #ffb6e6;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       padding: 30px;
+      position: relative;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8em;
       text-shadow: 2px 2px #ffe6f9;
     }
 
@@ -64,25 +68,61 @@
       box-shadow: 0 5px 25px rgba(255, 102, 179, 0.8);
     }
 
-    .sparkle {
-      font-size: 1.3em;
-      color: #ffccff;
+    .divider {
+      margin: 20px auto;
+      width: 80%;
+      border-top: 2px dashed #ffb6e6;
+    }
+
+    .sticker {
+      width: 90px;
+      position: absolute;
+    }
+
+    .sticker.left {
+      top: -20px;
+      left: -20px;
+      transform: rotate(-15deg);
+    }
+
+    .sticker.right {
+      bottom: -20px;
+      right: -20px;
+      transform: rotate(15deg);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #cc66a1;
     }
   </style>
 </head>
 <body>
 
   <div class="letter-box">
+    <img src="https://i.imgur.com/7Wb9s8r.png" class="sticker left" alt="butterfly sticker">
+    <img src="https://i.imgur.com/ZLW3ImE.png" class="sticker right" alt="heart sticker">
+
     <h1>💌 My Letter to You 💌</h1>
+    <div class="divider"></div>
     <p>
       Hey love, <br><br>
-      Just wanted to write this little note for you in my own tiny Y2K corner of the internet ✨💿💖.<br><br>
-      No words can ever capture how much you mean to me, but I hope this makes you smile.<br><br>
-      You’re my favorite person in this world, and I made a playlist just for you 🎶.<br><br>
+      This little corner of the internet is just for you ✨🌸💿.<br><br>
+      I wanted to leave you a message wrapped in pastel sparkles & Y2K vibes.<br><br>
+      You make my world brighter every single day 🌈💖.<br><br>
+      Here’s a playlist that’s basically my heart turned into music 🎶💎.<br><br>
       <span class="heart">❤</span>
     </p>
     <a class="btn" href="https://open.spotify.com/playlist/your-playlist-link" target="_blank">🎧 Listen to Our Playlist</a>
+    <div class="divider"></div>
+    <p>🌸✨ Made with love for you ✨🌸</p>
   </div>
+
+  <footer>
+    <p>Powered by love + glitter 💕</p>
+    <img src="https://i.imgur.com/NfR7U2C.gif" alt="sparkle gif" width="60">
+  </footer>
 
 </body>
 </html>
