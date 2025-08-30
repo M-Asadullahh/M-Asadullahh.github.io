@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter for You 💌</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+    body {
+      background: linear-gradient(135deg, #ffe6f9, #d6f7ff);
+      font-family: 'Comic Neue', cursive;
+      text-align: center;
+      padding: 40px;
+      color: #ff66b3;
+    }
+
+    .letter-box {
+      background: white;
+      border: 3px dashed #ff99cc;
+      border-radius: 25px;
+      box-shadow: 0 0 25px #ffb6e6;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px #ffe6f9;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .heart {
+      font-size: 2em;
+      color: #ff3399;
+      animation: heartbeat 1s infinite alternate;
+    }
+
+    @keyframes heartbeat {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      color: white;
+      background: linear-gradient(135deg, #ff66b3, #ff99cc);
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(255, 102, 179, 0.5);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1) rotate(-2deg);
+      box-shadow: 0 5px 25px rgba(255, 102, 179, 0.8);
+    }
+
+    .sparkle {
+      font-size: 1.3em;
+      color: #ffccff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter-box">
+    <h1>💌 My Letter to You 💌</h1>
+    <p>
+      Hey love, <br><br>
+      Just wanted to write this little note for you in my own tiny Y2K corner of the internet ✨💿💖.<br><br>
+      No words can ever capture how much you mean to me, but I hope this makes you smile.<br><br>
+      You’re my favorite person in this world, and I made a playlist just for you 🎶.<br><br>
+      <span class="heart">❤</span>
+    </p>
+    <a class="btn" href="https://open.spotify.com/playlist/your-playlist-link" target="_blank">🎧 Listen to Our Playlist</a>
+  </div>
+
+</body>
+</html>
