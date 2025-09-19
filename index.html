@@ -3,134 +3,221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Miss You</title>
+  <title>For You 🖤</title>
   <style>
     body {
-      background-color: black;
-      color: white;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
+      background: linear-gradient(135deg, #000000, #1a1a1a, #2e2e2e);
+      font-family: "Courier New", monospace;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      color: #fff;
     }
 
-    /* Floating hearts background */
-    .heart {
-      position: fixed;
-      bottom: -20px;
-      color: white;
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.7;
-    }
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 0.7; }
-      to { transform: translateY(-110vh); opacity: 0; }
-    }
-
-    button {
-      background: white;
-      color: black;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 30px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    button:hover {
-      background: #ff69b4;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    /* Floating "YES" button */
-    #yesButton {
-      position: absolute;
-      display: none;
-      background: linear-gradient(45deg, #ff69b4, #ffffff);
-      color: black;
-      border: none;
-      padding: 15px 40px;
-      border-radius: 50px;
+    /* Main button */
+    .btn {
+      background: #111;
+      border: 2px solid #fff;
+      padding: 18px 40px;
       font-size: 20px;
       font-weight: bold;
+      border-radius: 40px;
+      color: white;
       cursor: pointer;
-      animation: sparkle 1.5s infinite alternate;
+      box-shadow: 0px 4px 15px rgba(255,255,255,0.2);
+      transition: transform 0.2s, background 0.3s;
+      animation: glow 2s infinite alternate;
+      z-index: 2;
     }
 
-    @keyframes sparkle {
-      0% { box-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
-      100% { box-shadow: 0 0 20px white, 0 0 40px #ff69b4; }
+    .btn:hover {
+      transform: scale(1.1);
+      background: #333;
+      border-color: #ff66cc;
+      color: #ff66cc;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #ff66cc; }
+      100% { box-shadow: 0 0 25px #ff66cc; }
+    }
+
+    /* Floating elements (hearts, stars, paw prints) */
+    .float {
+      position: absolute;
+      font-size: 22px;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-300px); opacity: 0; }
+    }
+
+    /* Twinkling stars */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+
+    /* YES button styled same as main */
+    .yes-btn {
+      background: #111;
+      border: 2px solid #fff;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0px 4px 15px rgba(255,255,255,0.2);
+      transition: transform 0.2s, background 0.3s;
+      animation: glow 2s infinite alternate, pulse 1.5s infinite;
+      display: none;
+      position: absolute;
+      z-index: 3;
+    }
+
+    .yes-btn:hover {
+      transform: scale(1.1);
+      background: #333;
+      border-color: #ff66cc;
+      color: #ff66cc;
+    }
+
+    /* Pulse animation for YES button */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Sparkles around YES button */
+    .sparkle {
+      position: absolute;
+      font-size: 14px;
+      color: #ffccff;
+      animation: sparkleAnim 1.5s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes sparkleAnim {
+      0% { transform: scale(0) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.3) rotate(180deg); opacity: 0.6; }
+      100% { transform: scale(0) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <button class="btn" id="mainBtn">i miss you &lt;3</button>
+  <button class="yes-btn" id="yesBtn">YES</button>
 
-  <button id="mainButton">I miss you &lt;3</button>
-  <button id="yesButton">YES</button>
+  <!-- floating hearts, stars, paw prints -->
+  <div class="float" style="left:10%; animation-delay:0s;">♡</div>
+  <div class="float" style="left:25%; animation-delay:2s;">✦</div>
+  <div class="float" style="left:55%; animation-delay:1s;">🖤</div>
+  <div class="float" style="left:70%; animation-delay:3s;">✦</div>
+  <div class="float" style="left:85%; animation-delay:5s;">♡</div>
+  <div class="float" style="left:50%; animation-delay:6s;">🐾</div>
+
+  <!-- twinkling stars -->
+  <div class="star" style="top:20%; left:15%; animation-delay:0s;"></div>
+  <div class="star" style="top:40%; left:50%; animation-delay:1s;"></div>
+  <div class="star" style="top:70%; left:80%; animation-delay:2s;"></div>
+  <div class="star" style="top:30%; left:70%; animation-delay:1.5s;"></div>
+  <div class="star" style="top:60%; left:25%; animation-delay:0.5s;"></div>
+
+  <!-- Sparkles around YES button -->
+  <div class="sparkle" id="s1">✦</div>
+  <div class="sparkle" id="s2">✦</div>
+  <div class="sparkle" id="s3">✦</div>
+  <div class="sparkle" id="s4">✦</div>
 
   <script>
-    const mainButton = document.getElementById("mainButton");
-    const yesButton = document.getElementById("yesButton");
-    const playlistURL = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
+    const mainBtn = document.getElementById("mainBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const sparkles = [document.getElementById("s1"), document.getElementById("s2"), document.getElementById("s3"), document.getElementById("s4")];
+    let clickCount = 0;
+    let dodgeMode = true;
 
-    let stage = 0;
+    mainBtn.addEventListener("click", () => {
+      clickCount++;
+      if (clickCount === 1) {
+        mainBtn.textContent = "do you miss me too? :(";
+      } else if (clickCount === 2) {
+        mainBtn.textContent = "i miss you too <3";
+      } else if (clickCount === 3) {
+        mainBtn.textContent = "rlly?";
+      } else if (clickCount === 4) {
+        mainBtn.style.display = "none";
+        yesBtn.style.display = "block";
+        yesBtn.style.top = "50%";
+        yesBtn.style.left = "50%";
+        yesBtn.style.transform = "translate(-50%, -50%)";
+        dodgeMode = true;
 
-    mainButton.addEventListener("click", () => {
-      if (stage === 0) {
-        mainButton.textContent = "Do you miss me too? :(";
-        stage++;
-      } else if (stage === 1) {
-        mainButton.textContent = "I miss you too <3";
-        stage++;
-      } else if (stage === 2) {
-        mainButton.textContent = "RLLY?";
-        stage++;
-      } else if (stage === 3) {
-        mainButton.style.display = "none";
+        // Position sparkles around YES button
+        updateSparkles();
+
+        // after 10s, stop dodging and return to center
         setTimeout(() => {
-          yesButton.style.display = "block";
-          yesButton.style.left = "50%";
-          yesButton.style.top = "50%";
-          yesButton.style.transform = "translate(-50%, -50%)";
-        }, 10000); // 10 second delay
+          dodgeMode = false;
+          yesBtn.style.top = "50%";
+          yesBtn.style.left = "50%";
+          yesBtn.style.transform = "translate(-50%, -50%)";
+          updateSparkles();
+        }, 10000);
       }
     });
 
-    // Floating YES button runs away
-    yesButton.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 50);
-      yesButton.style.left = `${x}px`;
-      yesButton.style.top = `${y}px`;
+    // make the YES button dodge the mouse
+    yesBtn.addEventListener("mouseover", () => {
+      if (dodgeMode) {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        yesBtn.style.left = `${x}px`;
+        yesBtn.style.top = `${y}px`;
+        updateSparkles();
+      }
     });
 
-    yesButton.addEventListener("click", () => {
-      yesButton.textContent = "MWAH <3";
-      setTimeout(() => {
-        window.location.href = playlistURL;
-      }, 2000);
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
     });
 
-    // Floating hearts background
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "♡";
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+    function updateSparkles() {
+      const rect = yesBtn.getBoundingClientRect();
+      const offsets = [
+        {x: -20, y: -20},
+        {x: 50, y: -15},
+        {x: -10, y: 40},
+        {x: 40, y: 35}
+      ];
+      sparkles.forEach((s, i) => {
+        s.style.left = rect.left + offsets[i].x + "px";
+        s.style.top = rect.top + offsets[i].y + "px";
+      });
     }
+
+    window.addEventListener("resize", updateSparkles);
+  </script>
+</body>
+</html>
+
     setInterval(createHeart, 500);
   </script>
 
