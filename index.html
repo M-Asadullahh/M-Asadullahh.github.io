@@ -3,125 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>haya <3</title>
+  <title>I Miss You</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       text-align: center;
-      overflow: hidden;
       height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    .button {
+    /* Floating hearts background */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: white;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 0.7; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    button {
       background: white;
       color: black;
       border: none;
-      padding: 15px 30px;
-      border-radius: 25px;
-      font-size: 1.5em;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 18px;
       cursor: pointer;
-      margin-top: 20%;
-      position: relative;
-      transition: transform 0.2s, box-shadow 0.3s;
+      transition: all 0.3s ease;
     }
-
-    .button:hover {
+    button:hover {
+      background: #ff69b4;
+      color: white;
       transform: scale(1.1);
-      box-shadow: 0 0 20px white;
     }
 
-    .sparkle {
+    /* Floating "YES" button */
+    #yesButton {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      animation: sparkle 1.5s infinite ease-in-out;
+      display: none;
+      background: linear-gradient(45deg, #ff69b4, #ffffff);
+      color: black;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: sparkle 1.5s infinite alternate;
     }
 
     @keyframes sparkle {
-      0%, 100% { transform: scale(0) translateY(0); opacity: 0; }
-      50% { transform: scale(1.5) translateY(-10px); opacity: 1; }
-    }
-
-    .floating {
-      position: absolute;
-      background: white;
-      color: black;
-      padding: 15px 30px;
-      border-radius: 25px;
-      font-size: 1.5em;
-      font-weight: bold;
-      cursor: pointer;
-      animation: sparkleGlow 2s infinite alternate;
-    }
-
-    @keyframes sparkleGlow {
-      0% { box-shadow: 0 0 5px white; }
-      100% { box-shadow: 0 0 20px white; }
+      0% { box-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4; }
+      100% { box-shadow: 0 0 20px white, 0 0 40px #ff69b4; }
     }
   </style>
 </head>
 <body>
-  <button id="mainButton" class="button">i miss you &lt;3</button>
-  <button id="yesButton" class="floating" style="display:none;">YES</button>
+
+  <button id="mainButton">I miss you &lt;3</button>
+  <button id="yesButton">YES</button>
 
   <script>
-    const button = document.getElementById("mainButton");
+    const mainButton = document.getElementById("mainButton");
     const yesButton = document.getElementById("yesButton");
-    const messages = ["do you miss me too? :(", "i miss you too <3", "rlly?"];
-    let clickCount = 0;
+    const playlistURL = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
 
-    button.addEventListener("click", () => {
-      if (clickCount < messages.length) {
-        button.textContent = messages[clickCount];
-        clickCount++;
-      } else {
-        button.style.display = "none";
+    let stage = 0;
+
+    mainButton.addEventListener("click", () => {
+      if (stage === 0) {
+        mainButton.textContent = "Do you miss me too? :(";
+        stage++;
+      } else if (stage === 1) {
+        mainButton.textContent = "I miss you too <3";
+        stage++;
+      } else if (stage === 2) {
+        mainButton.textContent = "RLLY?";
+        stage++;
+      } else if (stage === 3) {
+        mainButton.style.display = "none";
         setTimeout(() => {
           yesButton.style.display = "block";
-          yesButton.style.top = "50%";
           yesButton.style.left = "50%";
+          yesButton.style.top = "50%";
           yesButton.style.transform = "translate(-50%, -50%)";
-        }, 10000);
+        }, 10000); // 10 second delay
       }
     });
 
-    // Make YES button dodge the mouse
+    // Floating YES button runs away
     yesButton.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 150);
-      const y = Math.random() * (window.innerHeight - 80);
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
       yesButton.style.left = `${x}px`;
       yesButton.style.top = `${y}px`;
     });
 
-    // After 10s of dodging, bring it back and change text to MWAH <3
-    let dodging = true;
-    setInterval(() => {
-      if (yesButton.style.display === "block" && dodging) {
-        dodging = false;
-        yesButton.style.left = "50%";
-        yesButton.style.top = "50%";
-        yesButton.style.transform = "translate(-50%, -50%)";
-        yesButton.textContent = "MWAH <3";
-      }
-    }, 17000);
-
     yesButton.addEventListener("click", () => {
-      window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
+      yesButton.textContent = "MWAH <3";
+      setTimeout(() => {
+        window.location.href = playlistURL;
+      }, 2000);
     });
 
-    // Sparkles for the main button
-    setInterval(() => {
-      const sparkle = document.createElement("div");
-      sparkle.className = "sparkle";
-      document.body.appendChild(sparkle);
-      sparkle.style.left = button.offsetLeft + button.offsetWidth / 2 + (Math.random() * 100 - 50) + "px";
-      sparkle.style.top = button.offsetTop + (Math.random() * 60 - 30) + "px";
-      setTimeout(() => sparkle.remove(), 1500);
-    }, 300);
+    // Floating hearts background
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "♡";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+    setInterval(createHeart, 500);
   </script>
+
 </body>
 </html>
