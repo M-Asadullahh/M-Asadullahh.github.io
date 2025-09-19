@@ -3,62 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For You 💕</title>
+  <title>For You 🖤</title>
   <style>
     body {
-      background: linear-gradient(135deg, #f9e0f7, #ffe6f0, #e0f7fa);
-      font-family: "Comic Sans MS", "Comic Neue", cursive;
+      background: linear-gradient(135deg, #000000, #1a1a1a, #2e2e2e);
+      font-family: "Courier New", monospace;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
       overflow: hidden;
+      color: #fff;
     }
 
     .btn {
-      background: #ffb6c1;
-      border: none;
+      background: #111;
+      border: 2px solid #fff;
       padding: 18px 40px;
       font-size: 20px;
       font-weight: bold;
       border-radius: 40px;
       color: white;
       cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0px 4px 15px rgba(255,255,255,0.2);
       transition: transform 0.2s, background 0.3s;
     }
 
     .btn:hover {
       transform: scale(1.1);
-      background: #ff8fab;
+      background: #333;
+      border-color: #ff66cc;
+      color: #ff66cc;
     }
 
-    /* Cute floating hearts */
-    .heart {
+    /* Floating elements */
+    .float {
       position: absolute;
-      color: pink;
-      font-size: 20px;
-      animation: float 6s infinite ease-in-out;
+      font-size: 22px;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.8;
     }
 
     @keyframes float {
       0% { transform: translateY(0); opacity: 1; }
       50% { opacity: 0.5; }
-      100% { transform: translateY(-200px); opacity: 0; }
+      100% { transform: translateY(-250px); opacity: 0; }
     }
   </style>
 </head>
 <body>
   <button class="btn" onclick="window.location.href='https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b'">
-    🎵 Open Playlist 💖
+    🐾 Open Playlist 🖤
   </button>
 
-  <!-- floating hearts -->
-  <div class="heart" style="left:10%; animation-delay:0s;">♡</div>
-  <div class="heart" style="left:30%; animation-delay:2s;">♡</div>
-  <div class="heart" style="left:50%; animation-delay:4s;">♡</div>
-  <div class="heart" style="left:70%; animation-delay:1s;">♡</div>
-  <div class="heart" style="left:90%; animation-delay:3s;">♡</div>
+  <!-- floating hearts, cats, stars -->
+  <div class="float" style="left:10%; animation-delay:0s;">♡</div>
+  <div class="float" style="left:25%; animation-delay:2s;">✦</div>
+  <div class="float" style="left:40%; animation-delay:4s;">🐈</div>
+  <div class="float" style="left:55%; animation-delay:1s;">🖤</div>
+  <div class="float" style="left:70%; animation-delay:3s;">✦</div>
+  <div class="float" style="left:85%; animation-delay:5s;">♡</div>
+  <div class="float" style="left:50%; animation-delay:6s;">🐾</div>
 </body>
 </html>
+
