@@ -17,6 +17,7 @@
       color: #fff;
     }
 
+    /* Button style */
     .btn {
       background: #111;
       border: 2px solid #fff;
@@ -28,6 +29,7 @@
       cursor: pointer;
       box-shadow: 0px 4px 15px rgba(255,255,255,0.2);
       transition: transform 0.2s, background 0.3s;
+      animation: glow 2s infinite alternate;
     }
 
     .btn:hover {
@@ -37,34 +39,97 @@
       color: #ff66cc;
     }
 
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #ff66cc; }
+      100% { box-shadow: 0 0 25px #ff66cc; }
+    }
+
     /* Floating elements */
     .float {
       position: absolute;
       font-size: 22px;
-      animation: float 8s infinite ease-in-out;
+      animation: float 10s infinite ease-in-out;
       opacity: 0.8;
     }
 
     @keyframes float {
       0% { transform: translateY(0); opacity: 1; }
       50% { opacity: 0.5; }
-      100% { transform: translateY(-250px); opacity: 0; }
+      100% { transform: translateY(-300px); opacity: 0; }
     }
+
+    /* Twinkling stars */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+
+    /* Bats flying */
+    .bat {
+      position: absolute;
+      top: 30%;
+      font-size: 28px;
+      animation: fly 15s linear infinite;
+    }
+    .bat2 {
+      top: 60%;
+      animation-delay: 7s;
+    }
+    @keyframes fly {
+      from { left: -50px; }
+      to { left: 110%; }
+    }
+
+    /* Spiderweb corners */
+    .web {
+      position: absolute;
+      opacity: 0.3;
+      font-size: 40px;
+    }
+    .web.tl { top: 5px; left: 10px; }
+    .web.tr { top: 5px; right: 10px; }
+    .web.bl { bottom: 5px; left: 10px; }
+    .web.br { bottom: 5px; right: 10px; }
   </style>
 </head>
 <body>
   <button class="btn" onclick="window.location.href='https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b'">
-    🐾 Open Playlist 🖤
+    i miss you &lt;3
   </button>
 
-  <!-- floating hearts, cats, stars -->
+  <!-- floating hearts, stars, moons, paws -->
   <div class="float" style="left:10%; animation-delay:0s;">♡</div>
   <div class="float" style="left:25%; animation-delay:2s;">✦</div>
-  <div class="float" style="left:40%; animation-delay:4s;">🐈</div>
+  <div class="float" style="left:40%; animation-delay:4s;">🌙</div>
   <div class="float" style="left:55%; animation-delay:1s;">🖤</div>
   <div class="float" style="left:70%; animation-delay:3s;">✦</div>
   <div class="float" style="left:85%; animation-delay:5s;">♡</div>
   <div class="float" style="left:50%; animation-delay:6s;">🐾</div>
+
+  <!-- bats -->
+  <div class="bat">🦇</div>
+  <div class="bat bat2">🦇</div>
+
+  <!-- spiderwebs -->
+  <div class="web tl">🕸</div>
+  <div class="web tr">🕸</div>
+  <div class="web bl">🕸</div>
+  <div class="web br">🕸</div>
+
+  <!-- twinkling stars -->
+  <div class="star" style="top:20%; left:15%; animation-delay:0s;"></div>
+  <div class="star" style="top:40%; left:50%; animation-delay:1s;"></div>
+  <div class="star" style="top:70%; left:80%; animation-delay:2s;"></div>
+  <div class="star" style="top:30%; left:70%; animation-delay:1.5s;"></div>
+  <div class="star" style="top:60%; left:25%; animation-delay:0.5s;"></div>
 </body>
 </html>
-
