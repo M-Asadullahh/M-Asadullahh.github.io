@@ -3,132 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letter for You 💌</title>
+  <title>For You 💕</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Pacifico&display=swap');
-
     body {
-      background: linear-gradient(135deg, #ffe6f9, #d6f7ff);
-      font-family: 'Comic Neue', cursive;
-      text-align: center;
-      padding: 40px;
-      color: #ff66b3;
-    }
-
-    .letter-box {
-      background: rgba(255, 255, 255, 0.95);
-      border: 3px dashed #ff99cc;
-      border-radius: 25px;
-      box-shadow: 0 0 20px #ffb6e6;
-      max-width: 650px;
-      margin: auto;
-      padding: 30px;
-    }
-
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.5em;
-      text-shadow: 2px 2px #ffe6f9;
-    }
-
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-    }
-
-    .heart {
-      font-size: 2em;
-      color: #ff3399;
-      animation: heartbeat 1s infinite alternate;
-    }
-
-    @keyframes heartbeat {
-      from { transform: scale(1); }
-      to { transform: scale(1.2); }
+      background: linear-gradient(135deg, #f9e0f7, #ffe6f0, #e0f7fa);
+      font-family: "Comic Sans MS", "Comic Neue", cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 25px;
-      font-size: 1.2em;
+      background: #ffb6c1;
+      border: none;
+      padding: 18px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 40px;
       color: white;
-      background: linear-gradient(135deg, #ff66b3, #ff99cc);
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(255, 102, 179, 0.5);
-      transition: 0.3s;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.1) rotate(-2deg);
-      box-shadow: 0 5px 25px rgba(255, 102, 179, 0.8);
+      transform: scale(1.1);
+      background: #ff8fab;
     }
 
-    .divider {
-      margin: 20px auto;
-      width: 80%;
-      border-top: 2px dashed #ffb6e6;
+    /* Cute floating hearts */
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: float 6s infinite ease-in-out;
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #cc66a1;
-    }
-
-    /* Cute hidden play button */
-    #playButton {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #ff99cc, #ff66b3);
-      color: white;
-      box-shadow: 0 0 10px rgba(255, 102, 179, 0.6);
-      cursor: pointer;
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-200px); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <button class="btn" onclick="window.location.href='https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b'">
+    🎵 Open Playlist 💖
+  </button>
 
-  <div class="letter-box">
-    <h1>💌 My Letter to You 💌</h1>
-    <div class="divider"></div>
-    <p>
-      Hey love, <br><br>
-      This little corner of the internet is just for you ✨🌸.<br><br>
-      You make my world brighter every single day 🌈💖.<br><br>
-      Here’s a playlist that’s basically my heart turned into music 🎶💎.<br><br>
-      <span class="heart">❤</span>
-    </p>
-    <a class="btn" href="https://open.spotify.com/playlist/your-playlist-link" target="_blank">🎧 Listen to Our Playlist</a>
-    <div class="divider"></div>
-    <p>🌸✨ Made with love for you ✨🌸</p>
-
-    <!-- Hidden music trigger -->
-    <button id="playButton">💿 Play Music</button>
-  </div>
-
-  <footer>
-    <p>Powered by love 💕</p>
-  </footer>
-
-  <!-- Background Music -->
-  <audio id="bg-music" loop>
-    <source src="https://files.catbox.moe/8z9y2z.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    const playButton = document.getElementById("playButton");
-    const music = document.getElementById("bg-music");
-
-    playButton.addEventListener("click", () => {
-      music.play();
-      playButton.style.display = "none"; // hide button after click
-    });
-  </script>
-
+  <!-- floating hearts -->
+  <div class="heart" style="left:10%; animation-delay:0s;">♡</div>
+  <div class="heart" style="left:30%; animation-delay:2s;">♡</div>
+  <div class="heart" style="left:50%; animation-delay:4s;">♡</div>
+  <div class="heart" style="left:70%; animation-delay:1s;">♡</div>
+  <div class="heart" style="left:90%; animation-delay:3s;">♡</div>
 </body>
 </html>
