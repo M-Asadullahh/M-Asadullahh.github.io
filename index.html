@@ -101,6 +101,11 @@
   </style>
 </head>
 <body>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
   <button class="btn" id="mainBtn">i miss you &lt;3</button>
   <button class="yes-btn" id="yesBtn">YES</button>
 
@@ -122,11 +127,14 @@
   <script>
     const mainBtn = document.getElementById("mainBtn");
     const yesBtn = document.getElementById("yesBtn");
+    const music = document.getElementById("bg-music");
     let clickCount = 0;
     let dodgeMode = true;
-    let yesClickedOnce = false;
 
     mainBtn.addEventListener("click", () => {
+      // play music if autoplay was blocked
+      music.play();
+
       clickCount++;
       if (clickCount === 1) {
         mainBtn.textContent = "do you miss me too? :(";
@@ -148,6 +156,7 @@
           yesBtn.style.top = "50%";
           yesBtn.style.left = "50%";
           yesBtn.style.transform = "translate(-50%, -50%)";
+          yesBtn.textContent = "MWAH <3";
         }, 10000);
       }
     });
@@ -163,12 +172,7 @@
     });
 
     yesBtn.addEventListener("click", () => {
-      if (!yesClickedOnce) {
-        yesBtn.textContent = "MWAH <3";
-        yesClickedOnce = true;
-      } else {
-        window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
-      }
+      window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
     });
   </script>
 </body>
