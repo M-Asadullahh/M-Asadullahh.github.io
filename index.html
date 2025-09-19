@@ -102,7 +102,7 @@
 </head>
 <body>
   <button class="btn" id="mainBtn">i miss you &lt;3</button>
-  <button class="yes-btn" id="yesBtn">yes</button>
+  <button class="yes-btn" id="yesBtn">YES</button>
 
   <!-- floating hearts, stars, paw prints -->
   <div class="float" style="left:10%; animation-delay:0s;">♡</div>
@@ -124,6 +124,7 @@
     const yesBtn = document.getElementById("yesBtn");
     let clickCount = 0;
     let dodgeMode = true;
+    let yesClickedOnce = false;
 
     mainBtn.addEventListener("click", () => {
       clickCount++;
@@ -162,7 +163,12 @@
     });
 
     yesBtn.addEventListener("click", () => {
-      window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
+      if (!yesClickedOnce) {
+        yesBtn.textContent = "MWAH <3";
+        yesClickedOnce = true;
+      } else {
+        window.location.href = "https://open.spotify.com/playlist/5oFWdBiTJeJPWCVJIh9OYs?pt=45fb4c511061b7102df2463239a0968b";
+      }
     });
   </script>
 </body>
